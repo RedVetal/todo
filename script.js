@@ -1,53 +1,64 @@
+// Ждем, пока весь DOM загрузится
 document.addEventListener('DOMContentLoaded', () => {
-    const taskInput = document.getElementById('taskInput');
-    const addTaskBtn = document.getElementById('addTaskBtn');
-    const taskList = document.getElementById('taskList');
+    // Получаем элементы DOM
+    const taskInput = document.getElementById('taskInput'); // Поле ввода задачи
+    const addTaskBtn = document.getElementById('addTaskBtn'); // Кнопка добавления задачи
+    const taskList = document.getElementById('taskList'); // Список задач
   
-    // Загрузка задач из LocalStorage
+    // Загружаем задачи из LocalStorage или создаем пустой массив
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   
     // Функция для отображения задач
     function renderTasks() {
-      taskList.innerHTML = '';
+      taskList.innerHTML = ''; // Очищаем список задач
+  
+      // Проходим по всем задачам
       tasks.forEach((task, index) => {
+        // Создаем элемент списка
         const li = document.createElement('li');
-        li.textContent = task.text;
+        li.textContent = task.text; // Добавляем текст задачи
+  
+        // Если задача выполнена, добавляем класс completed
         if (task.completed) {
           li.classList.add('completed');
         }
   
-        // Кнопка удаления
+        // Создаем кнопку удаления
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Удалить';
         deleteBtn.addEventListener('click', () => {
-          tasks.splice(index, 1);
-          localStorage.setItem('tasks', JSON.stringify(tasks));
-          renderTasks();
+          tasks.splice(index, 1); // Удаляем задачу из массива
+          localStorage.setItem('tasks', JSON.stringify(tasks)); // Обновляем LocalStorage
+          renderTasks(); // Перерисовываем задачи
         });
   
-        // Отметка задачи как выполненной
+        // Добавляем обработчик для отметки задачи как выполненной
         li.addEventListener('click', () => {
-          task.completed = !task.completed;
-          localStorage.setItem('tasks', JSON.stringify(tasks));
-          renderTasks();
+          task.completed = !task.completed; // Меняем статус задачи
+          localStorage.setItem('tasks', JSON.stringify(tasks)); // Обновляем LocalStorage
+          renderTasks(); // Перерисовываем задачи
         });
   
+        // Добавляем кнопку удаления в элемент списка
         li.appendChild(deleteBtn);
+        // Добавляем элемент списка в список задач
         taskList.appendChild(li);
       });
     }
   
-    // Добавление новой задачи
+    // Добавляем обработчик для кнопки добавления задачи
     addTaskBtn.addEventListener('click', () => {
-      const text = taskInput.value.trim();
+      const text = taskInput.value.trim(); // Получаем текст задачи и убираем лишние пробелы
+  
+      // Если текст не пустой, добавляем задачу
       if (text !== '') {
-        tasks.push({ text, completed: false });
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-        taskInput.value = '';
-        renderTasks();
+        tasks.push({ text, completed: false }); // Добавляем задачу в массив
+        localStorage.setItem('tasks', JSON.stringify(tasks)); // Обновляем LocalStorage
+        taskInput.value = ''; // Очищаем поле ввода
+        renderTasks(); // Перерисовываем задачи
       }
     });
   
-    // Инициализация
+    // Инициализация: отображаем задачи при загрузке страницы
     renderTasks();
   });

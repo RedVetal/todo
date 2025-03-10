@@ -1,78 +1,89 @@
+/* Основные стили для body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: Arial, sans-serif; /* Шрифт */
+    background-color: #f4f4f4; /* Цвет фона */
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    display: flex; /* Используем flexbox для центрирования */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    height: 100vh; /* Высота на весь экран */
   }
   
+  /* Стили для контейнера */
   .container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
+    background: white; /* Белый фон */
+    padding: 20px; /* Внутренние отступы */
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
+    width: 300px; /* Ширина контейнера */
+    text-align: center; /* Выравнивание текста по центру */
   }
   
+  /* Стили для заголовка */
   h1 {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Отступ снизу */
   }
   
+  /* Стили для поля ввода */
   input {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: calc(100% - 22px); /* Ширина с учетом padding */
+    padding: 10px; /* Внутренние отступы */
+    margin-bottom: 10px; /* Отступ снизу */
+    border: 1px solid #ccc; /* Граница */
+    border-radius: 4px; /* Скругленные углы */
   }
   
+  /* Стили для кнопки */
   button {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    padding: 10px 20px; /* Внутренние отступы */
+    background-color: #28a745; /* Зеленый цвет фона */
+    color: white; /* Белый текст */
+    border: none; /* Убираем границу */
+    border-radius: 4px; /* Скругленные углы */
+    cursor: pointer; /* Курсор в виде указателя */
   }
   
+  /* Стили для кнопки при наведении */
   button:hover {
-    background-color: #218838;
+    background-color: #218838; /* Темно-зеленый цвет фона */
   }
   
+  /* Стили для списка задач */
   ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы */
   }
   
+  /* Стили для элемента списка */
   li {
-    padding: 10px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 10px; /* Внутренние отступы */
+    background-color: #f8f9fa; /* Светло-серый фон */
+    border: 1px solid #ddd; /* Граница */
+    border-radius: 4px; /* Скругленные углы */
+    margin-bottom: 5px; /* Отступ снизу */
+    display: flex; /* Используем flexbox */
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    align-items: center; /* Выравниваем элементы по центру */
   }
   
+  /* Стили для выполненной задачи */
   li.completed {
-    text-decoration: line-through;
-    color: #888;
+    text-decoration: line-through; /* Зачеркнутый текст */
+    color: #888; /* Серый цвет текста */
   }
   
+  /* Стили для кнопки удаления */
   li button {
-    background-color: #dc3545;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: #dc3545; /* Красный цвет фона */
+    border: none; /* Убираем границу */
+    color: white; /* Белый текст */
+    padding: 5px 10px; /* Внутренние отступы */
+    border-radius: 4px; /* Скругленные углы */
+    cursor: pointer; /* Курсор в виде указателя */
   }
   
+  /* Стили для кнопки удаления при наведении */
   li button:hover {
-    background-color: #c82333;
+    background-color: #c82333; /* Темно-красный цвет фона */
   }
